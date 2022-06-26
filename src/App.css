@@ -28,6 +28,43 @@
   color: #61dafb;
 }
 
+
+.list-client {
+  text-decoration: none;
+  color: olive;
+  list-style: none;
+  padding: 25px;
+}
+
+.list-client:hover {
+  text-decoration: none;
+  color: darkolivegreen;
+  list-style: none;
+  font-weight: bolder;
+}
+
+.form-center {
+  display: flex;
+  justify-content: center;
+}
+
+.hiveLi {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.foodDet{
+  margin: 0.5vh 3vh ;
+}
+
+.card-hive {
+  display: flex;
+  justify-content: center;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
