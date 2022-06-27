@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router'
-import { oneHiveService } from '../../services/hive.services';
+import { deleteHiveService, oneHiveService } from '../../services/hive.services';
 import { Card, ListGroup, Button, Spinner} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
@@ -25,6 +25,15 @@ function HiveDetails() {
     }
   }
 
+  const handleDelete = async () => {
+    try {
+      await deleteHiveService(id);
+      navigate("/colmenas/new");
+    } catch (error) {
+      navigate("/error");
+    }
+  };
+
   if (!hiveDetails) {
     return (
       <Button variant="primary" disabled>
@@ -39,7 +48,6 @@ function HiveDetails() {
       </Button>
     );
   }
-
   return (
     <div key={hiveDetails._id}>
       <h3>
@@ -55,9 +63,9 @@ function HiveDetails() {
             return (
             <ListGroup variant="flush">
               <ListGroup.Item>{eachAction.name}</ListGroup.Item>
-              <ListGroup.Item>{eachAction.user.username}</ListGroup.Item>
+              <ListGroup.Item>{eachAction.user.map((eachUser) => {return(eachUser.username)})}</ListGroup.Item>
               <Card.Footer>
-                <small className="text-muted">Fecha actualizada: {eachAction.fecha}</small>
+                <small className="text-muted">Fecha actualizada: {eachAction.updatedAt}</small>
               </Card.Footer>
             </ListGroup>
             )
@@ -65,9 +73,13 @@ function HiveDetails() {
         )}
           <Link to={`/colmenas/${id}/edit`}>
             <Button variant="success">Añadir Acción</Button>
-        </Link>
+          </Link>
+          <br />
+          <Button variant="success" onClick={handleDelete}>
+            Borrar
+          </Button>
       </Card>
-      
+          
       </div>
     </div>
   )

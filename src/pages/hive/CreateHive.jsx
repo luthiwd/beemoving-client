@@ -9,18 +9,11 @@ import { Form, Button} from 'react-bootstrap'
 function CreateHive() {
   const navigate = useNavigate()
   const [ name, setName] = useState("")
-  const [ actions, setActions ] = useState([])
+  
   const [ image, setImage ] = useState("")
   
   const handleNameChange = (e) => setName(e.target.value)
-  const handleActionsChange = (e) => {
-    const value = Array.from(
-      e.target.selectedOptions,
-      (option) => option.value
-    );
-    setActions(value);
-  };
-
+  
   const handleImageChange = async (e) => {
     const uploadForm = new FormData();
     uploadForm.append("image", e.target.files[0])
