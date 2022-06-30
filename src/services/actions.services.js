@@ -4,10 +4,6 @@ const getAllActionsService = () => {
   return service.get('/acciones')
 }
 
-// const getActionByIdService = (idAction) => {
-//   return service.get(`/${idAction}`)
-// }
-
 const addActionsService = (id) => {
   return service.patch(`/${id}/acciones/edit`)
 }
@@ -15,5 +11,4 @@ const addActionsService = (id) => {
 export {
   getAllActionsService,
   addActionsService,
-  // getActionByIdService
 }

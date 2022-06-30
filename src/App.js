@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Hives from './components/Hives';
 import HiveDetails from './pages/hive/HiveDetails';
 import CreateHive from './pages/hive/CreateHive';
+import AddActionsHive from './pages/hive/AddActionsHive';
 
 //Auth
 import Login from './pages/auth/Login'
@@ -15,6 +16,7 @@ import Signup from './pages/auth/Signup'
 //Error
 import Error from './pages/Error';
 import EditHive from './pages/hive/EditHive';
+
 
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
         <Route path="/colmenas/:id" element={<HiveDetails />} />
         <Route path="/colmenas/new" element={<CreateHive />} />
         <Route path="/colmenas/:id/edit" element={<EditHive />} />
+        <Route path="/colmenas/:id/action" element={<AddActionsHive />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/error" element={<Error />} />

@@ -14,7 +14,7 @@ function Hives() {
   useEffect(() => {
     getAllHives();
   }, [])
-  
+
   const getAllHives = async () => {
     try {
       const allHives = await allHiveService()

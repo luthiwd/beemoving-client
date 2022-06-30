@@ -49,7 +49,7 @@ function HiveDetails() {
     );
   }
   return (
-    <div key={hiveDetails._id}>
+    <div key={id}>
       <h3>
         Detalles de: {hiveDetails.name}
       </h3>
@@ -72,6 +72,10 @@ function HiveDetails() {
           })
         )}
           <Link to={`/colmenas/${id}/edit`}>
+            <Button variant="success">Editar</Button>
+          </Link>
+          <br />
+          <Link to={`/colmenas/${id}/action`}>
             <Button variant="success">Añadir Acción</Button>
           </Link>
           <br />
