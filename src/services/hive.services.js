@@ -17,7 +17,6 @@ const editHiveService = (id, editHive) => {
 }
 
 const addActionHiveService = (id, updateHive) => {
-  console.log(updateHive.actions)
   return service.patch(`/colmenas/${id}/${updateHive.actions}`)
 }
 

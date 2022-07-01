@@ -26,6 +26,7 @@ function CreateHive() {
   }
 
   const handleSubmit = async (e) => {
+    e.preventDefault()
     try {
       const newHive = {
         name,
@@ -33,6 +34,7 @@ function CreateHive() {
       };
       await addNewHiveService(newHive)
       navigate('/')
+      window.location.reload()
     } catch (error) {
       navigate('/error')
     }

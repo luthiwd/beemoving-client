@@ -63,7 +63,10 @@ function HiveDetails() {
             return (
             <ListGroup variant="flush">
               <ListGroup.Item>{eachAction.name}</ListGroup.Item>
-              <ListGroup.Item>{eachAction.user.map((eachUser) => {return(eachUser.username)})}</ListGroup.Item>
+              <ListGroup.Item>{eachAction.user.map((eachUser) => {return(
+                <ListGroup.Item>
+                {eachUser.username}</ListGroup.Item>
+                )})}</ListGroup.Item>
               <Card.Footer>
                 <small className="text-muted">Fecha actualizada: {eachAction.updatedAt}</small>
               </Card.Footer>
