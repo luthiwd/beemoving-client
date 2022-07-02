@@ -2,12 +2,11 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
-import { getAllActionsService } from '../../services/actions.services'
 import { Form, Button, Spinner } from 'react-bootstrap'
 import { useContext } from 'react'
 import { AuthContext } from '../../context/auth.context'
 import { addActionHiveService, oneHiveService } from '../../services/hive.services'
-import { uploadService } from '../../services/upload.services'
+//import { uploadService } from '../../services/upload.services'
 
 
 function AddActionsHive() {
@@ -15,19 +14,12 @@ function AddActionsHive() {
   const navigate = useNavigate()
   const { user } = useContext(AuthContext)
 
-  const [ actions, setActions ] = useState([])
-  const [ imagesfiles, setImagesFiles] = useState([])
-  const [ fecha, setFecha ] = useState("")
-  const [ allActions, setAllActions ] = useState([])
+  const [ name, setName ] = useState("")
   const [ hive, setHive ] = useState("")
-  
-  const handleNewAction = (e) => {
-      const value = Array.from(
-        e.target.selectedOptions,
-        (option) => option.value
-      );
-      setActions(value);
-  };
+  //const [ imagesfiles, setImagesFiles] = useState([])
+
+  const handleNewName = (e) => setName(e.target.value)
+
 
   // const handleUploadImages = async (e) => {
   //   const uploadForm = new FormData();
@@ -40,25 +32,19 @@ function AddActionsHive() {
   //     navigate("/error");
   //   }
   // };
-
-  // const handleFecha = (e) => {
-
-  // };
-
-  
+    
   const handleSubmit = async (e) => {
-    e.preventDefault();
+
     try {
-      const updateHive = {
-        actions,
-        //imagesfiles,
-      };
-      await addActionHiveService(id, updateHive)
-      // navigate(`/colmenas/${id}`)
+      const addAction ={
+        name,
+      }
+      await addActionHiveService(id, addAction)
+      navigate(`/colmenas/${id}`)
     } catch (error) {
       navigate('/error')
     }
-  }
+  };
 
   useEffect(() => {
     getAllActions()
@@ -66,8 +52,6 @@ function AddActionsHive() {
 
   const getAllActions = async () => {
     try {
-      const getActions = await getAllActionsService()
-      setAllActions(getActions.data)
       const getHive = await oneHiveService(id)
       setHive(getHive.data)
     } catch (error) {
@@ -91,28 +75,20 @@ function AddActionsHive() {
   }
   
   return (
-    <div key={id}>Añadir Acción
-      <Form onChange={handleSubmit}>
-        <div>
-          
-        <Form.Select name="actions" multiple onChange={handleNewAction}>
-          {allActions.map((eachAction) => {
-            return (
-              <>
-                <option value={eachAction._id}>{eachAction.name}</option>
-              </>
-            );
-          })}
-        </Form.Select>
-        </div>
-        {/* <Form.Label htmlFor="image"> Fecha de la Acción </Form.Label>
+    <div key={id}>
+      <h3>
+        Añadir Acción a {hive.name}
+      </h3>
+      <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3">
             <Form.Control
-              type="date"
-              multiple
-              name="fecha"
-              onChange={handleFecha}
-            />*/}
-          <br /> 
+              type="text"
+              name="action"
+              onChange={handleNewName}
+              value={name}
+              placeholder="Acción"
+            />
+          </Form.Group>
           <Form.Group className="mb-3" >
             <Form.Label name={user.username}> Usuario que Crea: {user.username} </Form.Label>
           </Form.Group>

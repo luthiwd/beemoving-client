@@ -16,8 +16,12 @@ const editHiveService = (id, editHive) => {
   return service.patch(`/colmenas/${id}`, editHive)
 }
 
-const addActionHiveService = (id, updateHive) => {
-  return service.patch(`/colmenas/${id}/${updateHive.actions}`)
+const addActionHiveService = (id, addAction) => {
+  return service.patch(`/colmenas/${id}/action`, addAction)
+}
+
+const deleteActionInHiveService = (idHive, idAction) => {
+  return service.patch(`/colmenas/${idHive}/${idAction}/deleteAction`)
 }
 
 const deleteHiveService =(id) => {
@@ -30,5 +34,6 @@ export {
   addNewHiveService,
   deleteHiveService,
   editHiveService,
-  addActionHiveService
+  addActionHiveService,
+  deleteActionInHiveService
 }

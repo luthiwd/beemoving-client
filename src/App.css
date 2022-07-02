@@ -64,6 +64,16 @@
   justify-content: center;
 }
 
+.btns-farmer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btns-farmer button {
+  margin: 10px 20px;
+}
+
 
 @keyframes App-logo-spin {
   from {
