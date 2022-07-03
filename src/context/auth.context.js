@@ -40,7 +40,7 @@ function AuthWrapper(props) {
   //!ESPERA MIENSTRAS VERIFICAMOS AL USUARIO; ANTES DE RENDERIZAR LA APP
 
   if (isLoading === true){
-    return <div className="app"><h3>Verificando Usuario</h3></div>
+    return <div className="progress"><div className="progress-value"></div></div>
   }
 
   //! ESTO ES TODA NUESTRA APP

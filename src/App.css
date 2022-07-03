@@ -29,6 +29,34 @@
   color: #61dafb;
 }
 
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: flex-start;
+  border-radius:100px;
+  align-items: center;
+  position: relative;
+  display: flex;
+  height: 40px;
+  width: 500px;
+}
+
+.progress-value {
+  animation: load 5s normal forwards;
+  box-shadow: 0 10px 40px -10px #fff;
+  border-radius: 100px;
+  background-color: #00c0c6;
+  background-image: linear-gradient(315deg, #00c0c6, 0%, #7ee8fa 74%
+  );
+  height: 38px;
+  width: 0;
+
+}
+
+@keyframes load  {
+  0% {width: 0;}
+  100% {width: 100%;}
+}
+
 .backpanal {
   background-image: url("https://res.cloudinary.com/djersm2h6/image/upload/v1656857233/beemoving/imagenes/panal_vy8otk.jpg");
   height: 100%;
