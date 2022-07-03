@@ -41,7 +41,7 @@ function AddActionsHive() {
         comment
       }
       await addActionHiveService(id, addAction)
-      navigate(`/`)
+      navigate('/colmenas')
     } catch (error) {
       navigate('/error')
     }
@@ -97,27 +97,7 @@ function AddActionsHive() {
         <Form.Label>Resumen de la acción</Form.Label>
         <Form.Control as="textarea" rows={3} />
       </Form.Group>
-      {/*   <Form.Group className="mb-3">
-            <Form.Control
-              type="text"
-              name="action"
-              onChange={handleNewName}
-              value={name}
-              placeholder="Acción"
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" >
-            <Form.Label name={user.username}> Usuario que Crea: {user.username} </Form.Label>
-          </Form.Group>
-          <Form.Group className="mb-3" >
-          <Form.Control
-              type="textarea"
-              name="resumen"
-              onChange={handleNewComment}
-              placeholder="Escribe un resumen"
-            />
-          </Form.Group> */}
-
+      
           {/*<Form.Group className="mb-3" >
             <Form.Label htmlFor="imagesfiles"> Fotos de la Colmena </Form.Label>
             <Form.Control
