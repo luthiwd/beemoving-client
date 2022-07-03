@@ -35,8 +35,8 @@ function EditHive() {
         image,
       };
       await editHiveService(id, editHive);
-      navigate(`/colmenas/${id}`)
-      window.location.reload()
+      navigate(`/colmenas/`)
+      // window.location.reload()
     } catch (error) {
       navigate('/error')
     }

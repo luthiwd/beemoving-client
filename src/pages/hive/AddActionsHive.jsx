@@ -41,7 +41,7 @@ function AddActionsHive() {
         comment
       }
       await addActionHiveService(id, addAction)
-      navigate(`/colmenas/${id}`)
+      navigate(`/colmenas/`)
     } catch (error) {
       navigate('/error')
     }
