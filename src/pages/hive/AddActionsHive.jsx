@@ -16,10 +16,11 @@ function AddActionsHive() {
 
   const [ name, setName ] = useState("")
   const [ hive, setHive ] = useState("")
+  const [ comment, setComment ] = useState("")
   //const [ imagesfiles, setImagesFiles] = useState([])
 
   const handleNewName = (e) => setName(e.target.value)
-
+  const handleNewComment = (e) => setComment(e.target.value)
 
   // const handleUploadImages = async (e) => {
   //   const uploadForm = new FormData();
@@ -34,10 +35,10 @@ function AddActionsHive() {
   // };
     
   const handleSubmit = async (e) => {
-
     try {
       const addAction ={
         name,
+        comment
       }
       await addActionHiveService(id, addAction)
       navigate(`/colmenas/${id}`)
@@ -92,6 +93,15 @@ function AddActionsHive() {
           <Form.Group className="mb-3" >
             <Form.Label name={user.username}> Usuario que Crea: {user.username} </Form.Label>
           </Form.Group>
+          <Form.Group className="mb-3" >
+          <Form.Control
+              type="textarea"
+              name="resumen"
+              onChange={handleNewComment}
+              placeholder="Escribe un resumen"
+            />
+          </Form.Group>
+
           {/*<Form.Group className="mb-3" >
             <Form.Label htmlFor="imagesfiles"> Fotos de la Colmena </Form.Label>
             <Form.Control
