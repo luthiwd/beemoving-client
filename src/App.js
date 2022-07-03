@@ -25,16 +25,19 @@ function App() {
       <NavbarTop />
       <Hives />
       <hr />
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/colmenas/:id" element={<HiveDetails />} />
-        <Route path="/colmenas/new" element={<CreateHive />} />
-        <Route path="/colmenas/:id/edit" element={<EditHive />} />
-        <Route path="/colmenas/:id/action" element={<AddActionsHive />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/error" element={<Error />} />
-      </Routes>
+      <div className='backpanal'>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/colmenas/:id" element={<HiveDetails />} />
+          <Route path="/colmenas/new" element={<CreateHive />} />
+          <Route path="/colmenas/:id/edit" element={<EditHive />} />
+          <Route path="/colmenas/:id/action" element={<AddActionsHive />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/error" element={<Error />} />
+        </Routes>
+      </div>
+      
     </div>
   );
 }

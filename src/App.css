@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -28,6 +29,13 @@
   color: #61dafb;
 }
 
+.backpanal {
+  background-image: url("https://res.cloudinary.com/djersm2h6/image/upload/v1656857233/beemoving/imagenes/panal_vy8otk.jpg");
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -100;
+}
 
 .list-client {
   text-decoration: none;

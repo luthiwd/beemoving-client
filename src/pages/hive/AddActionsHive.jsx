@@ -76,12 +76,28 @@ function AddActionsHive() {
   }
   
   return (
-    <div key={id}>
-      <h3>
-        Añadir Acción a {hive.name}
-      </h3>
+    <div key={id} className="form-center container-fluid">
+      
       <Form onSubmit={handleSubmit}>
-          <Form.Group className="mb-3">
+        <h3>
+                Añadir Acción a {hive.name}
+              </h3>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+        <Form.Label>Nombre Acción</Form.Label>
+        <Form.Control type="text" placeholder="nombre de la acción realizada" name="action"
+              onChange={handleNewName}
+              value={name} />
+      </Form.Group>
+        <Form.Group className="mb-3" >
+            <Form.Label name={user.username}> Usuario que Crea: {user.username} </Form.Label>
+        </Form.Group>
+      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1" name="resumen"
+              onChange={handleNewComment}
+              placeholder="Escribe un resumen">
+        <Form.Label>Resumen de la acción</Form.Label>
+        <Form.Control as="textarea" rows={3} />
+      </Form.Group>
+      {/*   <Form.Group className="mb-3">
             <Form.Control
               type="text"
               name="action"
@@ -100,7 +116,7 @@ function AddActionsHive() {
               onChange={handleNewComment}
               placeholder="Escribe un resumen"
             />
-          </Form.Group>
+          </Form.Group> */}
 
           {/*<Form.Group className="mb-3" >
             <Form.Label htmlFor="imagesfiles"> Fotos de la Colmena </Form.Label>
