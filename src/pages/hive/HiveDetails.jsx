@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router'
 import { deleteHiveService, oneHiveService, deleteActionInHiveService } from '../../services/hive.services';
 import { Card, ListGroup, Button, Spinner} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-
+import { ImageCards } from '../../components/ImageCards'
 
 function HiveDetails() {
   const navigate = useNavigate()
@@ -93,12 +93,19 @@ function HiveDetails() {
                 <Button variant="success"  onClick={() => handleDeleteAction(eachAction._id)}>
                     Borrar Acción
                 </Button>
-
-              
-            </Card>
+              </Card>
             )
           })         
         )}
+        <br />
+        {
+          !hiveDetails.imagesfiles ? <></> : hiveDetails.imagesfiles.map((eachImage) => {
+            return (
+              <img  width={"150px"} src={eachImage} alt="imagen colmena" />
+            )
+          })
+        }
+                  
       </div>
           <div className="btns-farmer">
             <Link to={`/colmenas/${id}/edit`}>
