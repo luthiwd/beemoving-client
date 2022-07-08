@@ -59,6 +59,7 @@
 
 .backpanal {
   background-image: url("https://res.cloudinary.com/djersm2h6/image/upload/v1656857233/beemoving/imagenes/panal_vy8otk.jpg");
+  background-repeat: none;
   height: 100%;
   width: 100%;
   position: absolute;

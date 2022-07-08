@@ -2,14 +2,18 @@ import React from 'react'
 import { useEffect, useState, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router'
 import { deleteHiveService, oneHiveService, deleteActionInHiveService } from '../../services/hive.services';
-import { Card, ListGroup, Button, Spinner} from 'react-bootstrap'
+import { Card, ListGroup, Button, Spinner, CardGroup} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { ImageCards } from '../../components/ImageCards'
+import ModalConfirm from '../../components/ModalConfirm';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function HiveDetails() {
   const navigate = useNavigate()
   const { id } = useParams();
   const [ hiveDetails, setHiveDetails] = useState("")
+  const [ show, setShow ] = useState(false)
 
 
   useEffect(() => {
@@ -35,21 +39,6 @@ function HiveDetails() {
         navigate("/error");
       }
   };
-
-
-  const handleDeleteAction = async (idAction) => {
-    
-    try {
-
-
-      await deleteActionInHiveService(id, idAction)
-      getHiveDetails()
-      
-    } catch (error) {
-      navigate('/error')
-    }
-  }
-
 
   if (!hiveDetails) {
     return (
@@ -78,34 +67,52 @@ function HiveDetails() {
         ) : (
           hiveDetails.actions.map((eachAction) => {
             return (
-              <Card className="foodDet" border="dark" style={{ width: '12rem' }}>
-                <Card.Header>{eachAction.name}</Card.Header>
-                <div className="list-client">
-                  <small>Resumen</small>
-                  <Card.Footer> <small> {eachAction.comment}</small></Card.Footer>
-                </div>
-              <Card.Footer>
-                <small className="text-muted">Usuario:{eachAction.user.username} </small>
-                <br />
-                <small className="text-muted">Fecha actualizada: {(new Date (eachAction.updatedAt)).toLocaleDateString()}</small>
-              </Card.Footer>
-              
-                <Button variant="success"  onClick={() => handleDeleteAction(eachAction._id)}>
-                    Borrar Acción
-                </Button>
+              <Card className="foodDet" border="dark" style={{ width: '18rem' }}>
+                <Card.Body>
+                  <Card.Title>{eachAction.name}</Card.Title>
+                  <hr />
+                  <Card.Subtitle className="mb-2 text-muted">Fecha: {(new Date (eachAction.updatedAt)).toLocaleDateString()}</Card.Subtitle>
+                  <Card.Text>
+                    {eachAction.comment}
+                  </Card.Text>
+                  <Link to={`/actions/${eachAction._id}/edit`}>
+                    <Button variant="success" >
+                      Editar Acción
+                    </Button>
+                  </Link>
+                </Card.Body>
               </Card>
+              // <Card className="foodDet" border="dark" style={{ width: '12rem' }}>
+              //   <Card.Header>{eachAction.name}</Card.Header>
+              //   <div className="list-client">
+              //     <small>Resumen</small>
+              //     <Card.Footer> <small> {eachAction.comment}</small></Card.Footer>
+              //   </div>
+              // <Card.Footer>
+              //   <small className="text-muted">Usuario:{eachAction.user.username} </small>
+              //   <br />
+              //   <small className="text-muted">Fecha actualizada: {(new Date (eachAction.updatedAt)).toLocaleDateString()}</small>
+              // </Card.Footer>
+              // <Link to={`/actions/${eachAction._id}/edit`}>
+              //   <Button variant="success" >
+              //       Editar Acción
+              //   </Button>
+              // </Link>
+                
+              // </Card>
             )
           })         
         )}
         <br />
+        <Card className="foodDet" style={{ width: '12rem' }}>
         {
           !hiveDetails.imagesfiles ? <></> : hiveDetails.imagesfiles.map((eachImage) => {
             return (
-              <img  width={"150px"} src={eachImage} alt="imagen colmena" />
+              <Card.Img width="150px" src={eachImage} alt="imagen Colmena" />
             )
-          })
+        })
         }
-                  
+        </Card>
       </div>
           <div className="btns-farmer">
             <Link to={`/colmenas/${id}/edit`}>
@@ -119,6 +126,11 @@ function HiveDetails() {
             <Button variant="success" onClick={handleDelete}>
               Borrar Colmena
             </Button>
+            {/* <div>
+              <button onClick={() => setShow(true)}> Show modal</button>
+              <ModalConfirm show={show}/>
+            </div> */}
+            
           </div>
     </div>
   )
