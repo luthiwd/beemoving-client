@@ -31,7 +31,8 @@
 
 .progress {
   background: rgba(255, 255, 255, 0.1);
-  justify-content: flex;
+  justify-content: center;
+  align-items: center;
   border-radius:100px;
   align-items: center;
   position: relative;
@@ -67,9 +68,12 @@
 
 .hiveComponent {
   background-color: #ffa600af;
+  padding-top: 2em;
+  padding-bottom: 5em;
 }
 
 .backpanal {
+  padding-top: 5em;
   background-image: url("https://res.cloudinary.com/djersm2h6/image/upload/v1657368321/beemoving/imagenes/panal_vy8otk.jpg");
   background-repeat: none;
   min-height: 100vh;

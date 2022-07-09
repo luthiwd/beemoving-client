@@ -26,8 +26,7 @@ function App() {
   return (
     <div className="App">
       <NavbarTop />
-      <Hives />
-      <hr className='hrMain'/>
+      <IsPrivate><Hives /></IsPrivate>
       <div className='backpanal'>
         <Routes>
           <Route path="/" element={<Home /> }/>

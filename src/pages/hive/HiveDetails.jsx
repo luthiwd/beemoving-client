@@ -4,7 +4,6 @@ import { useNavigate, useParams } from 'react-router'
 import { deleteHiveService, oneHiveService} from '../../services/hive.services';
 import { Card, Button, Spinner} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import ModalConfirm from '../../components/ModalConfirm';
 
 import { useContext } from 'react';
 import { AuthContext } from '../../context/auth.context';
@@ -16,8 +15,6 @@ function HiveDetails() {
   const { user } = useContext(AuthContext)
 
   const [ hiveDetails, setHiveDetails] = useState("")
-  const [ show, setShow ] = useState(false)
-
 
   useEffect(() => {
     getHiveDetails()
@@ -87,7 +84,7 @@ function HiveDetails() {
                   }
                 </Card.Body>
                 <Card.Footer>
-                  <small className="text-muted">Usuario:{eachAction.user.username} </small>
+                  <small className="text-muted">{eachAction.user.username} </small>
                 </Card.Footer>
               </Card>
             )
@@ -108,11 +105,6 @@ function HiveDetails() {
             <Button variant="success" onClick={handleDelete}>
               Borrar Colmena
             </Button>
-            {/* <div>
-              <button onClick={() => setShow(true)}> Show modal</button>
-              <ModalConfirm show={show}/>
-            </div> */}
-            
           </div>
     </div>
   )

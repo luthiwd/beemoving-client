@@ -75,7 +75,7 @@ function EditHive() {
   }
   
   return (
-    <div key={id}><h3>Editar Colmena</h3> 
+    <div key={id} className="flex justify-center"><h3>Editar Colmena</h3> 
       <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" >
             {/* <label htmlFor="name" >Nombre</label> */}

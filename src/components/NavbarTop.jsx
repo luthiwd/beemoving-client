@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { Navbar, Nav, Container } from "react-bootstrap";
+import IsPrivate from "./IsPrivate";
+import Login from "../pages/auth/Login";
 
 
 //Componente para la navegación y el control de acceso a distintas partes
@@ -69,12 +71,12 @@ function NavbarTop() {
                 </Nav.Link>
               </Nav>
               <Nav>
-                <Nav.Link as={NavLink} to="/signup">
-                  Regístrate
-                </Nav.Link>
-                <Nav.Link as={NavLink} to="/login">
-                  Accede
-                </Nav.Link>
+                <IsPrivate>
+                  <Nav.Link as={NavLink} to="/signup">
+                    Regístrate
+                  </Nav.Link>
+                </IsPrivate>
+                  <Login show={true}/>
               </Nav>
             </Navbar.Collapse>
           </Container>
