@@ -46,7 +46,7 @@ function Hives() {
       {
         listHive.map((eachHive) => {
           return(
-        <Card key={eachHive._id} className="foodDet" border="dark" style={{ width: "12rem" }}>
+        <Card key={eachHive._id} className="foodDet" border="dark" style={{ width: "16rem" }}>
           <Card.Header>
             <Link className="list-client" to={`/colmenas/${eachHive._id}`}>
               {eachHive.name}

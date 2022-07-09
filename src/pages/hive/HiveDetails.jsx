@@ -90,8 +90,9 @@ function HiveDetails() {
             )
           })         
         )}
-        <br />
-            <ImagesHive hiveDetails={hiveDetails}/>
+        </div>
+        <div className='hiveLi'>
+          <ImagesHive hiveDetails={hiveDetails}/>
         </div>
           <div className="btns-farmer">
               <Link to={`/colmenas/${id}/edit`}>
