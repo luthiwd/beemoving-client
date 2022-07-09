@@ -23,8 +23,8 @@ function NavbarTop() {
         <Container>
           <Navbar.Brand className="logo" as={NavLink} to="/">
             <img
-              src="https://res.cloudinary.com/djersm2h6/image/upload/v1655546452/imagesportfolio/beemoving_w8gzkc.png"
-              height="32"
+              src="https://res.cloudinary.com/djersm2h6/image/upload/v1657367542/beemoving/imagenes/logo_dgtgxh.png"
+              height="50"
               className="d-inline-block align-top"
               alt="logo"
             />

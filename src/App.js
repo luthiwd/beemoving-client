@@ -21,12 +21,13 @@ import EditAction from './pages/hive/EditAction';
 
 
 
+
 function App() {
   return (
     <div className="App">
       <NavbarTop />
       <Hives />
-      <hr />
+      <hr className='hrMain'/>
       <div className='backpanal'>
         <Routes>
           <Route path="/" element={<Home /> }/>

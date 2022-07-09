@@ -40,7 +40,7 @@ function Hives() {
   }
 
   return (
-    <div className='App'>
+    <div className='hiveComponent'>
         <h1>Colmenas</h1>
       <div className='hiveLi'>
       {

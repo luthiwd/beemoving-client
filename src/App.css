@@ -31,7 +31,7 @@
 
 .progress {
   background: rgba(255, 255, 255, 0.1);
-  justify-content: flex-start;
+  justify-content: flex;
   border-radius:100px;
   align-items: center;
   position: relative;
@@ -57,12 +57,22 @@
   100% {width: 100%;}
 }
 
+.bg-dark{
+  background-color: #000000af !important ;
+}
+
+.hrMain {
+  border: 2px solid rgb(255, 0, 0);
+}
+
+.hiveComponent {
+  background-color: #ffa600af;
+}
+
 .backpanal {
-  background-image: url("https://res.cloudinary.com/djersm2h6/image/upload/v1656857233/beemoving/imagenes/panal_vy8otk.jpg");
+  background-image: url("https://res.cloudinary.com/djersm2h6/image/upload/v1657368321/beemoving/imagenes/panal_vy8otk.jpg");
   background-repeat: none;
-  height: 100%;
-  width: 100%;
-  position: absolute;
+  min-height: 100vh;
   z-index: -100;
 }
 
@@ -94,6 +104,20 @@
 
 .foodDet{
   margin: 0.5vh 3vh ;
+}
+
+.imageLi {
+  justify-content: center;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imageDet {
+  align-items: center;
+  padding-left: 10px;
+  margin: 3vh 4vh;
 }
 
 .card-hive {
