@@ -36,7 +36,7 @@ function App() {
           <Route path="/colmenas/:id/action" element={<IsPrivate><AddActionsHive /></IsPrivate>} />
           <Route path="/actions/:id/edit" element={<IsPrivate><EditAction /></IsPrivate>} />
           <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<IsPrivate><Signup /></IsPrivate>} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/error" element={<Error />} />
         </Routes>
       </div>

@@ -38,7 +38,7 @@ function Login() {
       localStorage.setItem("authToken", response.data.authToken)
       authenticateUser()
       // asignar los valores a los estados globales para manejo en el FE
-      navigate('/')
+      navigate('/colmenas')
 
     } catch (error) { 
       if(error.response.status === 400 || error.response.status===401){
@@ -90,35 +90,6 @@ function Login() {
       
     </Modal>
   </>
-
-
-    // <div>
-
-    //   <h1>Log In</h1>
-
-    //   <form onSubmit={handleLogin}>
-    //     <label>Email:</label>
-    //     <input
-    //       type="email"
-    //       name="email"
-    //       value={email}
-    //       onChange={handleEmailChange}
-    //     />
-    //     <br />
-    //     <label>Password:</label>
-    //     <input
-    //       type="password"
-    //       name="password"
-    //       value={password}
-    //       onChange={handlePasswordChange}
-    //     />
-    //     <br />
-    //     { errorMessage !== null && <p>{errorMessage}</p>}     
-
-    //     <button type="submit">Login</button>
-    //   </form>
-      
-    // </div>
   );
 }
 

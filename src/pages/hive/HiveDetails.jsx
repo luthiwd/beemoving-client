@@ -28,18 +28,7 @@ function HiveDetails() {
       navigate('/error')
     }
   }
-
-  const handleDelete = async () => {
-    
-      try {
-
-        await deleteHiveService(id);
-        navigate("/colmenas/new");
-      } catch (error) {
-        navigate("/error");
-      }
-  };
-
+  
   if (!hiveDetails) {
     return (
       <Button variant="primary" disabled>
@@ -102,10 +91,6 @@ function HiveDetails() {
             <Link to={`/colmenas/${id}/action`}>
               <Button variant="success">Añadir Acción</Button>
             </Link>
-          <br />
-            <Button variant="success" onClick={handleDelete}>
-              Borrar Colmena
-            </Button>
           </div>
     </div>
   )

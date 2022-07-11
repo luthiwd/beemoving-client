@@ -76,7 +76,7 @@ function NavbarTop() {
                     Regístrate
                   </Nav.Link>
                 </IsPrivate>
-                  <Login show={true}/>
+                  <Login setShow={true}/>
               </Nav>
             </Navbar.Collapse>
           </Container>

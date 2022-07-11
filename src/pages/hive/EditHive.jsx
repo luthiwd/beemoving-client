@@ -5,6 +5,7 @@ import { Form, Button, Spinner } from 'react-bootstrap'
 import { useNavigate, useParams } from 'react-router'
 import { uploadService } from '../../services/upload.services'
 import { editHiveService, oneHiveService } from '../../services/hive.services'
+import { deleteHiveService } from '../../services/hive.services'
 
 function EditHive() {
   const { id } = useParams()
@@ -26,6 +27,17 @@ function EditHive() {
       navigate("/error");
     }
   };
+
+  const handleDelete = async () => {
+    
+    try {
+
+      await deleteHiveService(id);
+      navigate("/colmenas/new");
+    } catch (error) {
+      navigate("/error");
+    }
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -97,11 +109,14 @@ function EditHive() {
             />
           </Form.Group>
           <img width={"150px"} src={image} alt="imagen perfil" />
-          <br />
-          <br />
-          <Button variant="success" type="submit">
-            Guardar
-          </Button>
+          <div className="btns-farmer">
+            <Button variant="success" type="submit">
+              Guardar
+            </Button>
+            <Button variant="success" onClick={handleDelete}>
+              Borrar Colmena
+            </Button>             
+          </div>
         </Form>
     </div>
   )
