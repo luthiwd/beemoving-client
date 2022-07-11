@@ -9,7 +9,7 @@ function IsPrivate(props) {
   if (isLogin === true) {
     return props.children;
   } 
-  // else {
+  // if( isLogin === false ) {
   //   return <Navigate to="/Signup" />;
   // }
 }
